@@ -44,15 +44,14 @@ end
 
 post '/tweet' do
   @message = nil
-    # Recibe el input del usuario
-    puts "+" * 80
+  # Recibe el input del usuario
   tweet = params[:tweet]
-  p tweet
-  begin
-    CLIENT.update(tweet)
-    @message = "el tweet se envio con exito"
-  rescue
-    @message = "el tweet ya se envio antes"
+  new_tweet = Tweet.new(body: tweet)
+  find_tweet = Tweet.find_by(body: tweet)
+  
+  if find_tweet
+    "el tweet ya se envio antes"
+  elsif new_tweet.save
+    "el tweet se envio con exito"
   end
-  erb :index
 end

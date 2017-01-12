@@ -12,17 +12,30 @@ $(document).ready(function() {
     $loading.show();
     event.preventDefault();
     var userName = $('#username').val();
-    console.log(userName);
     $.post("/user", {username: userName}, function(data){
-      console.log(data);
       $('#tweets').show();
       $('#tweets').html(data);
       $('#handle').empty();
       $loading.hide();
     }); 
-  
   });
+
+  sendTweet();
+
 });
+
+
+var sendTweet = function(){
+  $('#send').submit(function(event){
+    event.preventDefault();
+    var tweetVal = $('textarea#tweet').val();
+    $.post("/tweet", {tweet: tweetVal}, function(data){
+      console.log(data);
+      $("#hola").append(data);
+      $('#send').trigger("reset");
+    });
+  });
+}
 
 
 

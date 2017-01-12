@@ -7,8 +7,8 @@
 <br>
 <br>
 <br>
-<form action="/tweet" method="post">
-<textarea placeholder="Write a tweet  " name="tweet"></textarea>
+<form id="send" action="/tweet" method="post">
+<textarea placeholder="Write a tweet" id="tweet" name="tweet"></textarea>
 <br>
 <input type="submit" value="submit">
 </form>
@@ -17,12 +17,11 @@
 <div id="tweets">
   <%= erb :show_tweets, layout: false %>
 </div>
+
 <div id="spinner">
   <center>
   <img id="spinner" src="/img/spinner.gif" alt="Loading..." style="width:128px;height:128px;"/>
 </center>
 </div>
 
-<% if @message %>
-  <%= @message %>
-<% end %>
+<p id="hola"></p>
