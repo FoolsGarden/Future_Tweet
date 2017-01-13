@@ -1,27 +1,9 @@
 <h1> Twitter API</h1>
 
-<form id="handle" action="/user" method="post">
-<input id="username" type="text" name="username" placeholder="User search" >
-<input id="submit" type="submit" value="submit">
-</form>
-<br>
-<br>
-<br>
-<form id="send" action="/tweet" method="post">
-<textarea placeholder="Write a tweet" id="tweet" name="tweet"></textarea>
-<br>
-<input type="submit" value="submit">
-</form>
-
-
-<div id="tweets">
-  <%= erb :show_tweets, layout: false %>
+ <div id="logo">
+  <form action="/sign_in" method="get">
+      <input class="icontwitter" type=image src="http://couturemahal.com/image/data/twitter.png">
+      <br><br><label style="color:white;top:23%;font-weight: bold;right: 4%;"class="icontwitter">Iniciar Session</label>
+  </form>
 </div>
 
-<div id="spinner">
-  <center>
-  <img id="spinner" src="/img/spinner.gif" alt="Loading..." style="width:128px;height:128px;"/>
-</center>
-</div>
-
-<p id="hola"></p>

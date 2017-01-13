@@ -7,18 +7,18 @@ $(document).ready(function() {
   var $loading = $('#spinner').hide();
       
   
-  $("#handle").on("submit", function(event){
+  // $("#handle").on("submit", function(event){
 
-    $loading.show();
-    event.preventDefault();
-    var userName = $('#username').val();
-    $.post("/user", {username: userName}, function(data){
-      $('#tweets').show();
-      $('#tweets').html(data);
-      $('#handle').empty();
-      $loading.hide();
-    }); 
-  });
+  //   $loading.show();
+  //   event.preventDefault();
+  //   var userName = $('#username').val();
+  //   $.post("/user/search", {username: userName}, function(data){
+  //     $('#tweets').show();
+  //     $('#tweets').html(data);
+  //     $('#handle').empty();
+  //     $loading.hide();
+  //   }); 
+  // });
 
   sendTweet();
 

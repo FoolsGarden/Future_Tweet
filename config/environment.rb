@@ -5,6 +5,7 @@ ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
 
 require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 require 'twitter'
+require 'oauth'
 # Require gems we care about
 require 'rubygems'
 
@@ -32,11 +33,16 @@ Dir[APP_ROOT.join('app', 'uploaders', '*.rb')].each { |file| require file }
 # Configura la base de datos y modelos 
 require APP_ROOT.join('config', 'database')
 # Comunica el archivo .yml para inicializar la aplicación
-yaml = YAML.load_file("config/twitt.yml")
+
+
+env_config = YAML.load_file(APP_ROOT.join('config', 'twitt.yaml'))
+
+env_config.each do |key, value|
+  ENV[key] = value
+end
 #Este archivo toma las variables del .yml para inicializar el cliente
 CLIENT = Twitter::REST::Client.new do |config|
-  config.consumer_key        = yaml["consumer_key"]
-  config.consumer_secret     = yaml["consumer_secret"]
-  config.access_token        = yaml["access_token"]
-  config.access_token_secret = yaml["access_token_secret"]
+  config.consumer_key        = ENV["TWITTER_KEY"]
+  config.consumer_secret     = ENV["TWITTER_SECRET"]
+  
 end

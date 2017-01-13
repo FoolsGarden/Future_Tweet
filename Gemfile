@@ -4,7 +4,7 @@ gem 'twitter'
 # PostgreSQL driver
 gem 'pg'
 
-gem 'omniauth'
+gem 'oauth'
 
 # Sinatra driver
 gem 'sinatra'
