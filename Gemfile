@@ -1,10 +1,13 @@
 source :rubygems
 
+#Twitter 
+gem 'sidekiq'
+gem 'redis'
 gem 'twitter'
+gem 'oauth'
 # PostgreSQL driver
 gem 'pg'
 
-gem 'oauth'
 
 # Sinatra driver
 gem 'sinatra'
